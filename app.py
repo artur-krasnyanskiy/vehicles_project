@@ -5,6 +5,13 @@ import plotly_express as px
 df = pd.read_csv('vehicles_data.csv')
 df['manufacturer'] = df['model'].apply(lambda x: x.split()[0])
 
+# create a title
+st.header('Vehicles Price Factors Project')
+
+# create an introduction
+st.header('Introduction')
+st.write("""In this project we will take an overview of the dataset of vehicles purchase dataset and examine the factors, which may influence a vehicle's purchase price""")
+
 # create a text header above the dataframe
 st.header('Vehicles data')
 # display the dataframe with the streamlit
@@ -91,3 +98,11 @@ fig2 = px.scatter(df, x='price', y=choice_for_scatter, hover_data=['age_cat'])
 
 fig2.update_layout(title='<b> Price depending on {}'.format(choice_for_scatter))
 st.write(fig2)
+
+# create an introduction
+st.header('Conclusion')
+st.write("""Looking on the graphs above we can make several conclusions:
+- gas type almost doesn't affect the price, it's spread evenly amoung the price range
+- manual transmition is mostly presented in the lower price range, while other transmition types are more frequent in the upper price range
+- lux brands have relatively larger days listed figures, and non-lux brands are being sold faster
+- there's a positive correlation between number of cylinders and price, but only up to 8 cylinders, >8 cylinders are beings sold relatively cheeper than8 and 6 cyliners""")
